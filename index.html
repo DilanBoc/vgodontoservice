@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Agenda tu cita odontologica con Valeria Guzman. Atencion preventiva, estetica y familiar."
+    />
+    <title>Valeria Guzman | Agenda odontologica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark">VG</span>
+        <span>
+          <strong data-config="name">Valeria Guzman</strong>
+          <small>Odontologia profesional</small>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Navegacion principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-config="campaign">Agenda disponible del 24 de junio al 10 de julio</p>
+          <h1>Tu sonrisa, cuidada con criterio profesional.</h1>
+          <p class="hero-text">
+            Agenda una cita odontologica con <span data-config="name">Valeria Guzman</span>
+            para limpieza, aclaramiento, barniz de fluor o atencion familiar.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#agenda">Agendar cita</a>
+            <a class="button secondary" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
+              WhatsApp
+            </a>
+          </div>
+          <div class="trust-strip" aria-label="Beneficios">
+            <span>Atencion clara</span>
+            <span>Confirmacion rapida</span>
+            <span>Recordatorios por calendario</span>
+          </div>
+        </div>
+        <div class="hero-media" aria-label="Imagen de referencia odontologica">
+          <img src="assets/valeria-reference.png" alt="Referencia visual de servicios odontologicos" />
+          <div class="media-note">
+            <strong>Servicios para toda la familia</strong>
+            <span>Estetica, prevencion y limpieza profesional.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="servicios">
+        <div class="section-heading">
+          <p class="eyebrow">Servicios principales</p>
+          <h2>Elige el motivo de tu cita</h2>
+        </div>
+        <div class="services-grid" data-services></div>
+      </section>
+
+      <section class="confidence-band">
+        <div>
+          <p class="eyebrow">Antes de agendar</p>
+          <h2>Una web de salud debe convertir, pero tambien debe generar confianza.</h2>
+        </div>
+        <p>
+          Por eso esta plantilla evita pedir datos clinicos sensibles al inicio. Captura solo
+          informacion de contacto y el servicio de interes; la valoracion profesional ocurre en cita.
+        </p>
+      </section>
+
+      <section class="section booking-section" id="agenda">
+        <div class="booking-copy">
+          <p class="eyebrow">Agenda y captura</p>
+          <h2>Deja tus datos y reserva el horario disponible.</h2>
+          <p>
+            Primero registramos el lead en Google Sheets. Luego la persona puede continuar a Google
+            Calendar para seleccionar el horario.
+          </p>
+          <div class="calendar-card">
+            <h3>Google Calendar</h3>
+            <p data-calendar-status>
+              Pega el enlace real de Appointment Schedule en <code>app.js</code> para activar este boton.
+            </p>
+            <a class="button primary full" data-calendar-link href="#" target="_blank" rel="noreferrer">
+              Abrir agenda
+            </a>
+          </div>
+        </div>
+
+        <form class="lead-form" id="leadForm">
+          <input class="hidden-field" name="website" tabindex="-1" autocomplete="off" />
+          <label>
+            Nombre completo
+            <input name="name" autocomplete="name" required />
+          </label>
+          <label>
+            WhatsApp
+            <input name="phone" inputmode="tel" autocomplete="tel" placeholder="+57 300 000 0000" required />
+          </label>
+          <label>
+            Servicio de interes
+            <select name="service" required data-service-select>
+              <option value="">Selecciona un servicio</option>
+            </select>
+          </label>
+          <label>
+            Ciudad donde desea atencion
+            <input name="city" placeholder="Ej. Chia, Melgar, Bogota" />
+          </label>
+          <label>
+            Preferencia de fecha u horario
+            <input name="preferredTime" placeholder="Ej. manana, tarde, sabado" />
+          </label>
+          <label>
+            Comentario breve
+            <textarea name="message" rows="4" placeholder="Cuentanos que necesitas. No incluyas datos medicos sensibles."></textarea>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="consent" required />
+            <span>Acepto ser contactado para gestionar mi cita.</span>
+          </label>
+          <button class="button primary full" type="submit">Enviar datos</button>
+          <p class="form-status" role="status" data-form-status></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacto">
+      <div>
+        <strong data-config="name">Valeria Guzman</strong>
+        <p>Plantilla reutilizable para agendas odontologicas.</p>
+      </div>
+      <a data-whatsapp-link href="#" target="_blank" rel="noreferrer">Contactar por WhatsApp</a>
+    </footer>
+
+    <a class="floating-whatsapp" data-whatsapp-link href="#" target="_blank" rel="noreferrer" aria-label="Escribir por WhatsApp">
+      WhatsApp
+    </a>
+
+    <script src="app.js"></script>
+  </body>
+</html>
