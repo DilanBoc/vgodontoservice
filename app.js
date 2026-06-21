@@ -9,11 +9,13 @@ const dentistConfig = {
   services: [
     {
       name: "Aclaramiento dental",
-      summary: "Para una sonrisa mas blanca y brillante, con valoracion previa y expectativas claras.",
+      summary:
+        "Mejora estetica de la sonrisa con valoracion previa, expectativas claras y cuidado profesional.",
     },
     {
       name: "Aplicacion de barniz de fluor",
-      summary: "Apoyo preventivo contra caries. Ideal para ninos y adultos segun criterio profesional.",
+      summary:
+        "Apoyo preventivo contra caries. Recomendado para ninos y adultos segun criterio profesional.",
     },
     {
       name: "Limpieza profunda con ultrasonido",
@@ -62,6 +64,7 @@ const renderConfig = () => {
       <span class="service-icon">${index + 1}</span>
       <h3>${service.name}</h3>
       <p>${service.summary}</p>
+      <a class="service-link" href="#agenda" aria-label="Agendar ${service.name}">Agendar este servicio</a>
     `;
     servicesRoot.appendChild(card);
 

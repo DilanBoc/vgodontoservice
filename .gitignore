@@ -3,3 +3,5 @@ preview-mobile*.jpg
 .vercel/
 node_modules/
 npm-debug.log*
+
+.vercel
