@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Agenda tu cita odontologica con Valeria Guzman. Servicios de limpieza, aclaramiento, barniz de fluor y atencion familiar."
+      content="Agenda una cita odontologica con Valeria Guzman. Limpieza con ultrasonido, aclaramiento dental, barniz de fluor y atencion familiar."
     />
-    <meta property="og:title" content="Valeria Guzman | Agenda odontologica" />
+    <meta property="og:title" content="Dra. Valeria Guzman | Agenda odontologica" />
     <meta
       property="og:description"
-      content="Reserva tu cita odontologica y deja tus datos para confirmacion por WhatsApp."
+      content="Deja tus datos y escribe por WhatsApp para solicitar tu cita odontologica."
     />
     <meta property="og:type" content="website" />
-    <title>Valeria Guzman | Agenda odontologica</title>
+    <title>Dra. Valeria Guzman | Agenda odontologica</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Pacifico&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -25,16 +25,16 @@
   <body>
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <span class="brand-mark">VG</span>
+        <span class="brand-mark" aria-hidden="true">VG</span>
         <span>
           <strong data-config="name">Valeria Guzman</strong>
-          <small>Agenda odontologica</small>
+          <small>Odontologia integral</small>
         </span>
       </a>
       <nav class="nav" aria-label="Navegacion principal">
         <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#agenda">Agendar</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#faq">Preguntas</a>
       </nav>
       <a class="header-cta" data-whatsapp-link href="#" target="_blank" rel="noreferrer">WhatsApp</a>
     </header>
@@ -42,141 +42,113 @@
     <main id="inicio">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow" data-config="campaign">Agenda disponible del 24 de junio al 10 de julio</p>
-          <h1>Agenda tu cita y cuida tu sonrisa con atencion profesional.</h1>
+          <p class="pill">Agenda odontologica personalizada</p>
+          <p class="script-title">Tu sonrisa</p>
+          <h1>es tu mejor carta de presentacion</h1>
           <p class="hero-text">
-            Una experiencia sencilla para pacientes: eliges el servicio, dejas tus datos y
-            continuas a la agenda disponible de <span data-config="name">Valeria Guzman</span>.
+            Cuidala con una atencion cercana, clara y profesional. Solicita tu cita
+            por WhatsApp y deja tus datos para confirmar disponibilidad.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#agenda">Agendar ahora</a>
-            <a class="button secondary" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
-              Resolver dudas por WhatsApp
+            <a class="button primary" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
+              Agendar por WhatsApp
             </a>
+            <a class="button secondary" href="#servicios">Ver servicios</a>
           </div>
-          <div class="metrics" aria-label="Beneficios principales">
-            <div>
-              <strong>4</strong>
-              <span>Servicios clave</span>
-            </div>
-            <div>
-              <strong>24h</strong>
-              <span>Recordatorio sugerido</span>
-            </div>
-            <div>
-              <strong>100%</strong>
-              <span>Flujo movil</span>
-            </div>
+          <div class="benefit-grid" aria-label="Beneficios principales">
+            <span>Atencion familiar</span>
+            <span>Servicios preventivos</span>
+            <span>Estetica dental</span>
+            <span>Seguimiento por WhatsApp</span>
           </div>
         </div>
 
-        <aside class="hero-panel" aria-label="Resumen de agenda">
-          <div class="photo-stack">
-            <img src="assets/valeria-reference.png" alt="Servicios odontologicos de referencia" />
-            <div class="availability-card">
-              <span>Agenda activa</span>
-              <strong>Del 24 de junio al 10 de julio</strong>
+        <aside class="hero-visual" aria-label="Resumen visual de la agenda">
+          <div class="visual-card">
+            <img src="assets/valeria-reference.png" alt="Referencia de servicios odontologicos" />
+            <div class="visual-badge">
+              <span data-config="campaign">Agenda disponible del 24 de junio al 10 de julio</span>
+              <strong>Servicios para toda la familia</strong>
             </div>
           </div>
-          <div class="quick-card">
-            <p class="script-word">Tu sonrisa</p>
-            <h2>Primero datos, luego horario.</h2>
-            <p>
-              Capturamos el contacto antes de enviar a Google Calendar, para no perder pacientes
-              interesados si no terminan la reserva.
-            </p>
+          <div class="mini-panel">
+            <span>Contacto directo</span>
+            <strong>+57 312 240 9487</strong>
+            <p>WhatsApp es el canal principal. El calendario queda como apoyo para escoger horario.</p>
           </div>
         </aside>
       </section>
 
-      <section class="section service-section" id="servicios">
-        <div class="section-heading">
+      <section class="promo-band">
+        <div>
+          <span>Precios especiales y accesibles</span>
+          <strong>Porque tu salud oral no deberia esperar.</strong>
+        </div>
+        <a data-whatsapp-link href="#" target="_blank" rel="noreferrer">Escribir ahora</a>
+      </section>
+
+      <section class="section" id="servicios">
+        <div class="section-heading centered">
           <p class="eyebrow">Servicios odontologicos</p>
-          <h2>Motivos de cita claros, sin saturar al paciente.</h2>
+          <h2>Tratamientos principales para cuidar tu sonrisa</h2>
           <p>
-            La plantilla evita un catalogo interminable. Muestra pocos servicios, bien explicados,
-            y lleva al paciente a una accion concreta.
+            Pocos servicios, explicados con claridad. La prioridad es que el paciente
+            entienda que necesita y pueda solicitar una cita sin friccion.
           </p>
         </div>
         <div class="services-grid" data-services></div>
       </section>
 
-      <section class="proof-section">
-        <div class="proof-copy">
-          <p class="eyebrow">Confianza clinica</p>
-          <h2>Una pagina de salud no debe parecer solo una promocion.</h2>
+      <section class="trust-section">
+        <div class="trust-copy">
+          <p class="eyebrow">Confianza antes que ruido</p>
+          <h2>Una web odontologica debe verse bonita, pero tambien responsable.</h2>
           <p>
-            La referencia visual tiene energia comercial, pero la web necesita mas orden: confianza,
-            claridad y un flujo de agenda sin friccion.
+            Por eso quitamos resultados simulados y evitamos promesas exageradas. La pagina
+            acompana la decision del paciente sin reemplazar la valoracion profesional.
           </p>
         </div>
-        <div class="proof-list">
+        <div class="trust-cards">
           <article>
             <strong>Datos prudentes</strong>
-            <span>No se piden datos clinicos sensibles en el primer contacto.</span>
+            <span>Solo pedimos contacto, servicio de interes y preferencia de horario.</span>
           </article>
           <article>
-            <strong>Seguimiento facil</strong>
-            <span>El lead queda listo para Google Sheets y contacto por WhatsApp.</span>
+            <strong>WhatsApp primero</strong>
+            <span>El paciente abre una conversacion directa con mensaje prellenado.</span>
           </article>
           <article>
-            <strong>Plantilla replicable</strong>
-            <span>Nombre, servicios, WhatsApp, agenda y colores se cambian desde configuracion.</span>
-          </article>
-        </div>
-      </section>
-
-      <section class="section process-section" id="proceso">
-        <div class="section-heading compact">
-          <p class="eyebrow">Flujo de reserva</p>
-          <h2>Asi funciona para el paciente.</h2>
-        </div>
-        <div class="steps-grid">
-          <article>
-            <span>01</span>
-            <h3>Elige servicio</h3>
-            <p>El paciente identifica rapidamente si necesita limpieza, aclaramiento, fluor o atencion familiar.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Deja datos</h3>
-            <p>Nombre, WhatsApp, ciudad y preferencia de horario se guardan como lead.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Reserva horario</h3>
-            <p>Google Calendar maneja disponibilidad, confirmaciones y recordatorios.</p>
+            <strong>Calendario secundario</strong>
+            <span>Google Calendar queda disponible para reservar horario cuando este configurado.</span>
           </article>
         </div>
       </section>
 
       <section class="section booking-section" id="agenda">
-        <div class="booking-copy">
-          <p class="eyebrow">Agenda automatizada</p>
-          <h2>Captura el contacto antes de enviar a calendario.</h2>
+        <div class="booking-info">
+          <p class="eyebrow">Solicitud de cita</p>
+          <h2>Deja tus datos y continua por WhatsApp.</h2>
           <p>
-            Este orden es importante: si alguien abre la agenda pero no termina la reserva, igual
-            queda una oportunidad comercial para seguimiento por WhatsApp.
+            El formulario guarda el lead para seguimiento y prepara un mensaje claro para
+            Valeria. Si despues se configura Google Calendar, el paciente tambien podra elegir horario.
           </p>
           <div class="calendar-card">
-            <div>
-              <span class="card-label">Paso final</span>
-              <h3>Google Calendar</h3>
-            </div>
+            <span class="card-label">Opcion secundaria</span>
+            <h3>Reservar con Google Calendar</h3>
             <p data-calendar-status>
               Pega el enlace real de Appointment Schedule en <code>app.js</code> para activar este boton.
             </p>
-            <a class="button primary full" data-calendar-link href="#" target="_blank" rel="noreferrer">
-              Abrir agenda disponible
+            <a class="button outline full" data-calendar-link href="#" target="_blank" rel="noreferrer">
+              Ver agenda disponible
             </a>
           </div>
         </div>
 
         <form class="lead-form" id="leadForm">
           <div class="form-intro">
-            <span class="card-label">Solicitud de cita</span>
-            <h3>Datos para confirmar</h3>
-            <p>Completa la informacion basica. No incluyas datos medicos sensibles.</p>
+            <span class="card-label">Agenda en linea</span>
+            <h3>Prepara tu solicitud</h3>
+            <p>Completa los campos. No incluyas informacion medica sensible.</p>
           </div>
           <input class="hidden-field" name="website" tabindex="-1" autocomplete="off" />
           <label>
@@ -211,13 +183,43 @@
             <input type="checkbox" name="consent" required />
             <span>Acepto ser contactado para gestionar mi cita.</span>
           </label>
-          <button class="button primary full" type="submit">Enviar datos y continuar</button>
+          <button class="button primary full" type="submit">Enviar solicitud por WhatsApp</button>
           <p class="form-status" role="status" data-form-status></p>
         </form>
       </section>
+
+      <section class="faq-section" id="faq">
+        <div class="section-heading centered">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Antes de solicitar tu cita</h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Con que frecuencia deberia hacerme una limpieza?</summary>
+            <p>
+              En muchos casos se recomienda una limpieza periodica cada 6 meses, pero la frecuencia
+              real depende de la valoracion clinica y los habitos de cada paciente.
+            </p>
+          </details>
+          <details>
+            <summary>El aclaramiento dental es para todos?</summary>
+            <p>
+              No siempre. Primero conviene revisar sensibilidad, restauraciones, manchas y estado
+              general de la boca para definir si es una buena opcion.
+            </p>
+          </details>
+          <details>
+            <summary>Por que no piden datos medicos completos aqui?</summary>
+            <p>
+              Porque esta pagina es solo para solicitar contacto y agenda. Los datos clinicos deben
+              tratarse con mayor cuidado y, preferiblemente, durante la atencion profesional.
+            </p>
+          </details>
+        </div>
+      </section>
     </main>
 
-    <footer class="footer" id="contacto">
+    <footer class="footer">
       <div>
         <strong data-config="name">Valeria Guzman</strong>
         <p>Plantilla reutilizable para agendas odontologicas.</p>

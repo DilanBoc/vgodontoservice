@@ -5,7 +5,7 @@ const dentistConfig = {
   calendarUrl: "PEGAR_AQUI_URL_DE_GOOGLE_CALENDAR_APPOINTMENT_SCHEDULE",
   sheetsWebAppUrl: "PEGAR_AQUI_URL_DE_GOOGLE_APPS_SCRIPT_WEB_APP",
   whatsappMessage:
-    "Hola Valeria, quiero agendar una cita odontologica. Me interesa recibir informacion.",
+    "Hola Dra. Valeria, vi su pagina web y me gustaria solicitar una cita odontologica.",
   services: [
     {
       name: "Aclaramiento dental",
@@ -64,7 +64,7 @@ const renderConfig = () => {
       <span class="service-icon">${index + 1}</span>
       <h3>${service.name}</h3>
       <p>${service.summary}</p>
-      <a class="service-link" href="#agenda" aria-label="Agendar ${service.name}">Agendar este servicio</a>
+      <a class="service-link" href="#agenda" data-service-choice="${service.name}" aria-label="Agendar ${service.name}">Me interesa</a>
     `;
     servicesRoot.appendChild(card);
 
@@ -79,13 +79,43 @@ const renderConfig = () => {
 
   if (isConfigured(dentistConfig.calendarUrl)) {
     calendarLink.href = dentistConfig.calendarUrl;
-    calendarStatus.textContent = "Agenda activa. Al abrirla podras escoger el horario disponible.";
+    calendarStatus.textContent = "Agenda activa. Puedes escoger un horario despues de enviar tus datos.";
   } else {
     calendarLink.addEventListener("click", (event) => {
       event.preventDefault();
       calendarStatus.textContent = "Falta pegar el enlace real de Google Calendar en app.js.";
     });
   }
+};
+
+const buildLeadMessage = (payload) => {
+  const parts = [
+    `Hola Dra. Valeria, soy ${payload.name}.`,
+    `Quiero solicitar una cita odontologica.`,
+    payload.service ? `Servicio de interes: ${payload.service}.` : "",
+    payload.phone ? `Mi WhatsApp es: ${payload.phone}.` : "",
+    payload.city ? `Ciudad: ${payload.city}.` : "",
+    payload.preferredTime ? `Horario ideal: ${payload.preferredTime}.` : "",
+    payload.message ? `Comentario: ${payload.message}` : "",
+  ];
+
+  return parts.filter(Boolean).join("\n");
+};
+
+const handleServiceChoices = () => {
+  const serviceSelect = document.querySelector("[data-service-select]");
+  const form = document.querySelector("#leadForm");
+
+  document.addEventListener("click", (event) => {
+    const choice = event.target.closest("[data-service-choice]");
+
+    if (!choice) {
+      return;
+    }
+
+    serviceSelect.value = choice.dataset.serviceChoice;
+    form.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 };
 
 const formToPayload = (form) => {
@@ -143,15 +173,16 @@ const handleForm = () => {
 
     try {
       const result = await submitLead(payload);
-      const message = `Hola Valeria, soy ${payload.name}. Quiero agendar una cita para ${payload.service}. Mi telefono es ${payload.phone}.`;
+      const message = buildLeadMessage(payload);
       document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
         link.href = whatsappUrl(message);
       });
 
       status.textContent = result.demo
-        ? "Datos guardados en modo demo. Falta conectar Google Sheets en app.js."
-        : "Datos enviados. Ahora puedes abrir la agenda o escribir por WhatsApp.";
+        ? "Datos guardados en modo demo. Abriendo WhatsApp para completar la solicitud."
+        : "Datos enviados. Abriendo WhatsApp para completar la solicitud.";
       form.reset();
+      window.open(whatsappUrl(message), "_blank", "noreferrer");
     } catch (error) {
       status.textContent = "No se pudo enviar. Intenta por WhatsApp o revisa la URL de Apps Script.";
     } finally {
@@ -161,4 +192,5 @@ const handleForm = () => {
 };
 
 renderConfig();
+handleServiceChoices();
 handleForm();
