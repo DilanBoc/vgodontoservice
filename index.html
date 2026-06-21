@@ -5,19 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Agenda tu cita odontológica con la Dra. Valeria Guzmán. Aclaramiento dental, barniz de flúor y limpieza profunda con ultrasonido."
+      content="Cuidado dental profesional, familiar y accesible. Aclaramiento, limpieza con ultrasonido y barniz de flúor. Agenda tu cita por WhatsApp."
     />
-    <meta property="og:title" content="Dra. Valeria Guzmán | Odontología integral" />
-    <meta
-      property="og:description"
-      content="Servicios odontológicos para cuidar tu sonrisa. Agenda por WhatsApp con la Dra. Valeria Guzmán."
-    />
-    <meta property="og:type" content="website" />
-    <title>Dra. Valeria Guzmán | Odontología integral</title>
+    <title>Dra. Valeria Guzmán — Odontóloga en Melgar, Tolima</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -27,252 +21,243 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <nav class="site-nav">
-      <a class="brand" href="#inicio" aria-label="Inicio">
-        <span class="brand-icon"><i class="fa-solid fa-tooth"></i></span>
-        <span>
-          <strong>Dra. Valeria Guzmán</strong>
-          <small>Odontóloga • Melgar</small>
-        </span>
-      </a>
+    <header class="top-shell">
+      <div class="glass-nav">
+        <a class="brand" href="#inicio" aria-label="Inicio">
+          <span class="brand-icon"><i class="fa-solid fa-tooth"></i></span>
+          <span>
+            <strong>Dra. Valeria Guzmán</strong>
+            <small>ODONTÓLOGA •</small>
+          </span>
+        </a>
 
-      <div class="nav-links" aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#agendar">Agendar</a>
-        <a href="#contacto">Contacto</a>
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#agendar">Agendar</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="chat-button" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
+            <i class="fa-regular fa-message"></i>
+            Chatear Ahora!
+          </a>
+          <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
       </div>
 
-      <a class="nav-cta" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
-        <i class="fa-brands fa-whatsapp"></i>
-        Chatear Ahora
-      </a>
-
-      <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </nav>
-
-    <div class="mobile-drawer" id="mobileDrawer">
-      <a href="#inicio" data-mobile-link>Inicio</a>
-      <a href="#servicios" data-mobile-link>Servicios</a>
-      <a href="#agendar" data-mobile-link>Agendar Cita</a>
-      <a href="#faq" data-mobile-link>Preguntas</a>
-      <a class="drawer-cta" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
-        <i class="fa-brands fa-whatsapp"></i>
-        Agendar por WhatsApp
-      </a>
-    </div>
+      <div class="mobile-menu" id="mobileDrawer">
+        <a data-mobile-link href="#inicio">Inicio</a>
+        <a data-mobile-link href="#servicios">Servicios</a>
+        <a data-mobile-link href="#agendar">Agendar</a>
+        <a data-mobile-link href="#contacto">Contacto</a>
+        <a class="mobile-chat" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
+          <i class="fa-regular fa-message"></i>
+          Chatear Ahora!
+        </a>
+      </div>
+    </header>
 
     <main>
       <section class="hero" id="inicio">
-        <div class="glow glow-pink"></div>
-        <div class="glow glow-purple"></div>
-
-        <div class="hero-copy">
-          <span class="hero-badge">
-            <i class="fa-solid fa-star"></i>
-            ¡Tu sonrisa merece lo mejor! ♡
-          </span>
-
-          <p class="script-heading">Tu sonrisa</p>
-          <h1>
-            es tu mejor carta de
-            <span>presentación</span>
-          </h1>
-
-          <p class="hero-text">
-            Cuídala con amor, cuídala con una sonrisa saludable. Brindamos atención
-            profesional, cercana y dedicada para toda la familia.
-          </p>
-
-          <div class="feature-list">
-            <span><i class="fa-solid fa-check"></i> Precios Especiales</span>
-            <span><i class="fa-solid fa-check"></i> Atención Familiar</span>
-            <span><i class="fa-solid fa-check"></i> Resultados Visibles</span>
-            <span><i class="fa-solid fa-check"></i> Tecnología Dental</span>
-          </div>
-
-          <div class="hero-actions">
-            <a class="button primary pulse" href="#agendar">
-              <i class="fa-solid fa-calendar-check"></i>
-              Agendar mi Cita
-            </a>
-            <a class="button ghost" href="#servicios">
-              Ver Servicios
-            </a>
-          </div>
+        <div class="star-field" aria-hidden="true">
+          <i class="fa-solid fa-star s1"></i>
+          <i class="fa-solid fa-star s2"></i>
+          <i class="fa-solid fa-star s3"></i>
+          <i class="fa-solid fa-star s4"></i>
+          <i class="fa-solid fa-star s5"></i>
+          <i class="fa-solid fa-star s6"></i>
         </div>
 
-        <aside class="hero-card" aria-label="Tarjeta visual odontológica">
-          <div class="phone-card">
-            <div class="phone-top">
-              <span>Dra. Valeria Guzmán</span>
-              <i class="fa-solid fa-heart"></i>
-            </div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="hero-pill">
+              <i class="fa-solid fa-star"></i>
+              ¡Tu sonrisa merece lo mejor! ♡
+            </span>
 
-            <div class="tooth-stage">
-              <i class="fa-solid fa-star star-one"></i>
-              <i class="fa-solid fa-tooth tooth-main"></i>
-              <i class="fa-solid fa-sparkles star-two"></i>
-            </div>
+            <h1>
+              <span class="script-line">Tu sonrisa</span>
+              es tu mejor carta de <span class="gradient-text">presentación</span>
+            </h1>
 
-            <div class="phone-copy">
-              <h2>Odontología con Amor</h2>
-              <p>Atención profesional que cuida tu sonrisa y la de toda tu familia.</p>
-            </div>
+            <p>
+              Cuídala con amor, cuídala con una sonrisa saludable. Brindamos atención
+              profesional, con amor y dedicación.
+            </p>
 
-            <div class="campaign-card">
-              <span>Campañas Especiales</span>
-              <strong>Agenda Disponible Todo el Año</strong>
-              <small>Melgar, Tolima</small>
+            <ul class="feature-list">
+              <li><i class="fa-solid fa-circle-check"></i> Precios Especiales</li>
+              <li><i class="fa-solid fa-circle-check"></i> Atención Familiar</li>
+              <li><i class="fa-solid fa-circle-check"></i> Resultados Visibles</li>
+              <li><i class="fa-solid fa-circle-check"></i> Tecnología Dental</li>
+            </ul>
+
+            <div class="hero-actions">
+              <a class="primary-cta" href="#agendar">
+                <i class="fa-solid fa-calendar-check"></i>
+                Agendar mi Cita
+              </a>
+              <a class="secondary-cta" href="#servicios">Ver Servicios</a>
             </div>
           </div>
-        </aside>
+
+          <aside class="dental-visual" aria-label="Tarjeta visual de odontología">
+            <div class="visual-card">
+              <div class="visual-top">
+                <span>Dra. Valeria Guzmán</span>
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="tooth-orbit">
+                <i class="fa-solid fa-star orbit-star one"></i>
+                <i class="fa-regular fa-star orbit-star two"></i>
+                <div class="tooth-circle">
+                  <i class="fa-solid fa-tooth"></i>
+                </div>
+              </div>
+              <div class="visual-banner">
+                <i class="fa-solid fa-star"></i>
+                <div>
+                  <strong>Agenda Disponible</strong>
+                  <span>24 de Junio al 10 de Julio</span>
+                  <small>Melgar, Tolima ✨</small>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
       </section>
 
-      <section class="promo-banner">
-        <div>
-          <i class="fa-solid fa-calendar-days"></i>
-          <div>
-            <strong>Precios Especiales y Accesibles</strong>
-            <p>¡Porque tu salud no puede esperar! Consulta de valoración disponible.</p>
-          </div>
-        </div>
+      <section class="promo-panel">
+        <i class="fa-regular fa-calendar"></i>
+        <strong>Precios Especiales y Accesibles</strong>
+        <p>¡Porque tu salud no puede esperar! Consulta de valoración disponible.</p>
         <a href="#agendar">Agendar Valoración</a>
       </section>
 
       <section class="section services-section" id="servicios">
         <div class="section-heading">
-          <span>Servicios de Calidad</span>
-          <h2>Tratamientos Especializados para toda la Familia ♡</h2>
-          <p>
-            Diseñados para cuidar tu salud oral, proteger tu sonrisa y ayudarte a tomar
-            acción con una cita clara y sencilla.
-          </p>
+          <span class="script-small">Nuestros tratamientos</span>
+          <h2>Servicios Odontológicos para toda la <span>Familia</span> ♡</h2>
+          <p>Calidad, precios accesibles y un trato cálido que hace la diferencia.</p>
         </div>
-
         <div class="services-grid" data-services></div>
       </section>
 
       <section class="booking-section" id="agendar">
+        <div class="section-heading booking-heading">
+          <span class="script-small">Agenda tu visita</span>
+          <h2>Reserva tu cita en <span>segundos</span></h2>
+        </div>
+
         <div class="booking-card">
           <aside class="booking-info">
-            <div>
-              <span class="soft-pill">Atención Profesional</span>
-              <h2>Prepara tu Consulta</h2>
-              <p>
-                Completa los campos para armar tu solicitud. Al enviar, se abrirá WhatsApp
-                con un mensaje ordenado para la Dra. Valeria.
-              </p>
-            </div>
-
-            <div class="contact-stack">
+            <i class="fa-solid fa-star booking-star"></i>
+            <h3>Hablemos de tu sonrisa</h3>
+            <p>
+              Atención personalizada, sin filas y con la confianza de una odontóloga
+              comprometida con tu bienestar.
+            </p>
+            <a data-whatsapp-link href="#" target="_blank" rel="noreferrer" class="contact-box">
+              <span><i class="fa-solid fa-phone"></i></span>
               <div>
-                <i class="fa-solid fa-phone"></i>
-                <span>
-                  <small>Llamadas y WhatsApp</small>
-                  <strong>+57 312 240 9487</strong>
-                </span>
+                <small>WhatsApp</small>
+                <strong>+57 312 240 9487</strong>
               </div>
+            </a>
+            <div class="contact-box">
+              <span><i class="fa-solid fa-location-dot"></i></span>
               <div>
-                <i class="fa-solid fa-location-dot"></i>
-                <span>
-                  <small>Ubicación principal</small>
-                  <strong>Melgar, Tolima, Colombia</strong>
-                </span>
+                <small>Ubicación</small>
+                <strong>Melgar, Tolima, Colombia 📍</strong>
               </div>
             </div>
-
-            <blockquote>“Tu sonrisa merece lo mejor”</blockquote>
+            <blockquote>
+              “Tu sonrisa merece lo mejor”
+              <small>— Dra. Valeria</small>
+            </blockquote>
           </aside>
 
           <form class="booking-form" id="bookingForm">
-            <h3>Solicitud de Agenda en Línea</h3>
             <input class="hidden-field" name="website" tabindex="-1" autocomplete="off" />
-
-            <div class="field-row">
+            <div class="form-grid">
               <label>
-                Nombre completo
-                <input name="name" type="text" placeholder="Escribe tu nombre" autocomplete="name" required />
+                <span>Nombre completo</span>
+                <input name="name" required placeholder="Ej. María González" />
               </label>
               <label>
-                Celular de contacto
-                <input name="phone" type="tel" placeholder="Ej: 312 240 9487" autocomplete="tel" required />
-              </label>
-            </div>
-
-            <label>
-              ¿Qué servicio necesitas?
-              <select name="service" data-service-select required>
-                <option value="">Selecciona una opción...</option>
-              </select>
-            </label>
-
-            <div class="field-row">
-              <label>
-                Fecha tentativa
-                <input name="date" type="date" required />
+                <span>Teléfono</span>
+                <input name="phone" type="tel" required placeholder="+57 300 000 0000" />
               </label>
               <label>
-                Horario sugerido
-                <select name="schedule" required>
-                  <option value="">Seleccionar horario...</option>
-                  <option value="Mañana (8:00 AM - 12:00 PM)">Mañana (8:00 AM - 12:00 PM)</option>
-                  <option value="Tarde (2:00 PM - 6:00 PM)">Tarde (2:00 PM - 6:00 PM)</option>
+                <span>Servicio</span>
+                <select name="service" data-service-select required>
+                  <option value="">Selecciona un servicio</option>
                 </select>
               </label>
+              <label>
+                <span>Fecha tentativa</span>
+                <input name="date" type="date" />
+              </label>
+              <label class="wide">
+                <span>Horario preferido</span>
+                <select name="schedule">
+                  <option value="">Selecciona horario</option>
+                  <option>Mañana 8AM - 12PM</option>
+                  <option>Tarde 2PM - 6PM</option>
+                </select>
+              </label>
+              <label class="wide">
+                <span>Notas o preguntas</span>
+                <textarea name="message" rows="4" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+              </label>
             </div>
-
-            <label>
-              ¿Tienes alguna pregunta? <span>(Opcional)</span>
-              <textarea name="message" rows="4" placeholder="Ej: Me gustaría saber precios estimados..."></textarea>
-            </label>
-
             <button class="submit-button" type="submit">
-              <i class="fa-brands fa-whatsapp"></i>
+              <i class="fa-regular fa-message"></i>
               Enviar Solicitud a WhatsApp
             </button>
+            <p class="safe-note">Tus datos se envían directamente al WhatsApp de la clínica. 100% seguro.</p>
           </form>
         </div>
       </section>
 
       <section class="faq-section" id="faq">
         <div class="section-heading">
-          <span>Resuelve tus Dudas</span>
-          <h2>Preguntas Frecuentes</h2>
-          <p>Información básica para ayudarte antes de solicitar una cita.</p>
+          <span class="script-small">¿Tienes dudas?</span>
+          <h2>Resuelve tus Dudas — <span>Preguntas Frecuentes</span></h2>
         </div>
-
         <div class="faq-list">
-          <details>
+          <details open>
             <summary>
               ¿Con qué frecuencia debo hacerme una limpieza profunda?
               <i class="fa-solid fa-chevron-down"></i>
             </summary>
             <p>
-              En muchos casos se recomienda cada 6 meses para remover placa y sarro, pero la
-              frecuencia ideal depende de la valoración clínica de cada paciente.
+              Lo recomendable es realizar una limpieza profunda cada 6 meses. Así eliminamos la
+              placa bacteriana y el sarro que el cepillado diario no logra retirar.
             </p>
           </details>
           <details>
             <summary>
-              ¿El aclaramiento dental daña el esmalte?
+              ¿El aclaramiento dental daña el esmalte de los dientes?
               <i class="fa-solid fa-chevron-down"></i>
             </summary>
             <p>
-              Un aclaramiento dental supervisado profesionalmente es seguro cuando se realiza
-              con indicación adecuada y productos clínicos controlados.
+              No. Cuando el aclaramiento se realiza de manera clínica y supervisada por una
+              odontóloga profesional, es seguro y se hace con protocolos que protegen el esmalte.
             </p>
           </details>
           <details>
             <summary>
-              ¿Por qué es importante el barniz de flúor?
+              ¿Por qué es importante el Barniz de Flúor en niños y adultos?
               <i class="fa-solid fa-chevron-down"></i>
             </summary>
             <p>
-              Ayuda a reforzar el esmalte y puede actuar como una barrera protectora frente al
-              riesgo de caries en niños y adultos.
+              El barniz de flúor actúa como una barrera protectora que remineraliza el esmalte,
+              fortalece los dientes y ayuda a prevenir caries.
             </p>
           </details>
         </div>
@@ -284,53 +269,48 @@
         <div>
           <div class="footer-brand">
             <span><i class="fa-solid fa-tooth"></i></span>
-            <strong>Dra. Valeria Guzmán</strong>
+            <div>
+              <strong>Dra. Valeria Guzmán</strong>
+              <small>Odontóloga • Melgar</small>
+            </div>
           </div>
-          <p>
-            Atención odontológica profesional para cuidar tu sonrisa con claridad,
-            paciencia y dedicación.
-          </p>
+          <p>Cuidamos tu sonrisa con amor, profesionalismo y dedicación.</p>
+          <p class="footer-script">¡Te esperamos con una sonrisa! ♡</p>
         </div>
         <div>
           <h3>Navegación</h3>
           <a href="#inicio">Inicio</a>
           <a href="#servicios">Servicios</a>
-          <a href="#agendar">Solicitar Agenda</a>
-          <a href="#faq">Preguntas</a>
+          <a href="#agendar">Agendar</a>
+          <a href="#contacto">Contacto</a>
         </div>
         <div>
           <h3>Contacto</h3>
-          <p>Melgar, Tolima, Colombia</p>
-          <a data-whatsapp-link href="#" target="_blank" rel="noreferrer">+57 312 240 9487</a>
-          <p>Agenda disponible según confirmación</p>
+          <p>Melgar, Tolima — Colombia</p>
+          <p>+57 312 240 9487</p>
+          <p>Lun – Sáb · 8AM – 6PM</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a data-whatsapp-link href="#" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+              <i class="fa-regular fa-message"></i>
+            </a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 Dra. Valeria Guzmán. Todos los derechos reservados.</span>
-        <div class="socials">
-          <a data-whatsapp-link href="#" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
-            <i class="fa-brands fa-facebook-f"></i>
-          </a>
-        </div>
+        <span>Hecho con ♡ en Melgar, Tolima</span>
       </div>
     </footer>
 
     <a class="floating-whatsapp" data-whatsapp-link href="#" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-      <i class="fa-brands fa-whatsapp"></i>
+      <i class="fa-regular fa-message"></i>
     </a>
 
     <div class="toast" id="toast" role="status" aria-live="polite">
-      <i class="fa-solid fa-check"></i>
-      <span>
-        <strong id="toastTitle">Listo</strong>
-        <small id="toastMessage">Redirigiendo a WhatsApp...</small>
-      </span>
+      <strong id="toastTitle">Listo</strong>
+      <span id="toastMessage">Redirigiendo a WhatsApp...</span>
     </div>
 
     <script src="app.js"></script>

@@ -1,56 +1,45 @@
-const dentistConfig = {
-  name: "Dra. Valeria Guzmán",
-  whatsapp: "573122409487",
-  whatsappMessage:
-    "Hola Dra. Valeria, vi su página web y me gustaría agendar una valoración odontológica.",
-  services: [
-    {
-      name: "Aclaramiento Dental",
-      formValue: "Aclaramiento Dental",
-      icon: "fa-wand-magic-sparkles",
-      summary:
-        "Luce una sonrisa más blanca, brillante y segura con una valoración previa y expectativas claras.",
-      badge: "¡Resultados visibles en pocas sesiones!",
-    },
-    {
-      name: "Barniz de Flúor",
-      formValue: "Barniz de Flúor",
-      icon: "fa-shield-halved",
-      summary:
-        "Apoyo preventivo contra caries. Ideal para niños y adultos según criterio profesional.",
-      badge: "¡Prevención que cuida tu sonrisa!",
-    },
-    {
-      name: "Limpieza con Ultrasonido",
-      formValue: "Limpieza con Ultrasonido",
-      icon: "fa-tooth",
-      summary:
-        "Ayuda a remover sarro y placa bacteriana para mantener dientes y encías más saludables.",
-      badge: "¡Salud que verdaderamente se siente!",
-    },
-  ],
-  extraServices: ["Valoración Inicial", "Otro tratamiento"],
-};
+const phone = "573122409487";
 
-const whatsappUrl = (message = dentistConfig.whatsappMessage) =>
-  `https://wa.me/${dentistConfig.whatsapp}?text=${encodeURIComponent(message)}`;
+const services = [
+  {
+    name: "Aclaramiento Dental",
+    icon: "fa-wand-magic-sparkles",
+    summary:
+      "Devuélvele el brillo natural a tu sonrisa con un tratamiento clínico seguro, profesional y diseñado a tu medida.",
+    badge: "¡Resultados visibles en pocas sesiones!",
+  },
+  {
+    name: "Barniz de Flúor",
+    icon: "fa-shield-halved",
+    summary:
+      "Una capa protectora que remineraliza el esmalte y previene las caries. Ideal para toda la familia, niños y adultos.",
+    badge: "¡Prevención que cuida tu sonrisa!",
+  },
+  {
+    name: "Limpieza con Ultrasonido",
+    icon: "fa-wand-sparkles",
+    summary:
+      "Eliminamos placa y sarro acumulado de forma profunda y delicada con tecnología de última generación.",
+    badge: "¡Salud que verdaderamente se siente!",
+  },
+];
+
+const extraServices = ["Diagnóstico General", "Otro"];
+
+const whatsappUrl = (message = "Hola Dra. Valeria, quiero agendar una cita odontológica.") =>
+  `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
 const showToast = (title, message) => {
   const toast = document.querySelector("#toast");
-  const toastTitle = document.querySelector("#toastTitle");
-  const toastMessage = document.querySelector("#toastMessage");
-
-  toastTitle.textContent = title;
-  toastMessage.textContent = message;
+  document.querySelector("#toastTitle").textContent = title;
+  document.querySelector("#toastMessage").textContent = message;
   toast.classList.add("show");
 
   window.clearTimeout(showToast.timeout);
-  showToast.timeout = window.setTimeout(() => {
-    toast.classList.remove("show");
-  }, 3600);
+  showToast.timeout = window.setTimeout(() => toast.classList.remove("show"), 3600);
 };
 
-const renderGlobalLinks = () => {
+const renderWhatsAppLinks = () => {
   document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
     link.href = whatsappUrl();
   });
@@ -60,7 +49,7 @@ const renderServices = () => {
   const servicesRoot = document.querySelector("[data-services]");
   const serviceSelect = document.querySelector("[data-service-select]");
 
-  dentistConfig.services.forEach((service) => {
+  services.forEach((service) => {
     const card = document.createElement("article");
     card.className = "service-card";
     card.innerHTML = `
@@ -68,33 +57,33 @@ const renderServices = () => {
       <h3>${service.name}</h3>
       <p>${service.summary}</p>
       <span class="service-badge">${service.badge}</span>
-      <button type="button" data-service-choice="${service.formValue}">
+      <button type="button" data-service-choice="${service.name}">
         Me interesa <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </button>
     `;
     servicesRoot.appendChild(card);
 
     const option = document.createElement("option");
-    option.value = service.formValue;
+    option.value = service.name;
     option.textContent = service.name;
     serviceSelect.appendChild(option);
   });
 
-  dentistConfig.extraServices.forEach((serviceName) => {
+  extraServices.forEach((service) => {
     const option = document.createElement("option");
-    option.value = serviceName;
-    option.textContent = serviceName;
+    option.value = service;
+    option.textContent = service;
     serviceSelect.appendChild(option);
   });
 };
 
-const handleMobileMenu = () => {
+const handleMenu = () => {
   const button = document.querySelector("#menuButton");
   const drawer = document.querySelector("#mobileDrawer");
 
   button.addEventListener("click", () => {
-    const isOpen = drawer.classList.toggle("open");
-    button.setAttribute("aria-expanded", String(isOpen));
+    const open = drawer.classList.toggle("open");
+    button.setAttribute("aria-expanded", String(open));
   });
 
   document.querySelectorAll("[data-mobile-link]").forEach((link) => {
@@ -105,38 +94,23 @@ const handleMobileMenu = () => {
   });
 };
 
-const handleServiceChoices = () => {
-  const serviceSelect = document.querySelector("[data-service-select]");
+const handleServiceChoice = () => {
+  const select = document.querySelector("[data-service-select]");
   const form = document.querySelector("#bookingForm");
 
   document.addEventListener("click", (event) => {
-    const choice = event.target.closest("[data-service-choice]");
+    const button = event.target.closest("[data-service-choice]");
+    if (!button) return;
 
-    if (!choice) return;
-
-    serviceSelect.value = choice.dataset.serviceChoice;
+    select.value = button.dataset.serviceChoice;
     form.scrollIntoView({ behavior: "smooth", block: "start" });
-    showToast("Servicio seleccionado", `Seleccionaste ${choice.dataset.serviceChoice}. Completa tus datos.`);
+    showToast("Servicio seleccionado", `${button.dataset.serviceChoice} quedó seleccionado.`);
   });
-};
-
-const buildWhatsAppMessage = (payload) => {
-  const lines = [
-    "Hola Dra. Valeria Guzmán 🦷, me gustaría agendar una cita.",
-    "",
-    `👤 Nombre: ${payload.name}`,
-    `📱 Celular: ${payload.phone}`,
-    `✨ Servicio: ${payload.service}`,
-    `📅 Fecha tentativa: ${payload.date}`,
-    `⏰ Horario sugerido: ${payload.schedule}`,
-    `📝 Detalles: ${payload.message || "Ninguno"}`,
-  ];
-
-  return lines.join("\n");
 };
 
 const formToPayload = (form) => {
   const data = new FormData(form);
+
   return {
     name: String(data.get("name") || "").trim(),
     phone: String(data.get("phone") || "").trim(),
@@ -148,27 +122,39 @@ const formToPayload = (form) => {
   };
 };
 
-const handleBookingForm = () => {
+const buildMessage = (payload) => {
+  return [
+    "Hola Dra. Valeria Guzmán 🦷, me gustaría agendar una cita.",
+    "",
+    `👤 Nombre: ${payload.name}`,
+    `📱 Teléfono: ${payload.phone}`,
+    `✨ Servicio: ${payload.service}`,
+    `📅 Fecha tentativa: ${payload.date || "Por confirmar"}`,
+    `⏰ Horario preferido: ${payload.schedule || "Por confirmar"}`,
+    `📝 Notas: ${payload.message || "Ninguna"}`,
+  ].join("\n");
+};
+
+const handleBooking = () => {
   const form = document.querySelector("#bookingForm");
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const payload = formToPayload(form);
 
+    const payload = formToPayload(form);
     if (payload.website) return;
 
-    const message = buildWhatsAppMessage(payload);
     showToast("Redirigiendo a WhatsApp", "Tu solicitud se abrirá en una nueva pestaña.");
 
     window.setTimeout(() => {
-      window.open(whatsappUrl(message), "_blank", "noreferrer");
+      window.open(whatsappUrl(buildMessage(payload)), "_blank", "noreferrer");
       form.reset();
-    }, 700);
+    }, 650);
   });
 };
 
-renderGlobalLinks();
+renderWhatsAppLinks();
 renderServices();
-handleMobileMenu();
-handleServiceChoices();
-handleBookingForm();
+handleMenu();
+handleServiceChoice();
+handleBooking();
