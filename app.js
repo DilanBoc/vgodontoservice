@@ -1,200 +1,174 @@
 const dentistConfig = {
-  name: "Valeria Guzman",
+  name: "Dra. Valeria Guzmán",
   whatsapp: "573122409487",
-  campaign: "Agenda disponible del 24 de junio al 10 de julio",
-  calendarUrl: "PEGAR_AQUI_URL_DE_GOOGLE_CALENDAR_APPOINTMENT_SCHEDULE",
-  sheetsWebAppUrl: "PEGAR_AQUI_URL_DE_GOOGLE_APPS_SCRIPT_WEB_APP",
   whatsappMessage:
-    "Hola Dra. Valeria, vi su pagina web y me gustaria solicitar una cita odontologica.",
+    "Hola Dra. Valeria, vi su página web y me gustaría agendar una valoración odontológica.",
   services: [
     {
-      name: "Aclaramiento dental",
+      name: "Aclaramiento Dental",
+      formValue: "Aclaramiento Dental",
       icon: "fa-wand-magic-sparkles",
       summary:
-        "Mejora estetica de la sonrisa con valoracion previa, expectativas claras y cuidado profesional.",
+        "Luce una sonrisa más blanca, brillante y segura con una valoración previa y expectativas claras.",
+      badge: "¡Resultados visibles en pocas sesiones!",
     },
     {
-      name: "Aplicacion de barniz de fluor",
+      name: "Barniz de Flúor",
+      formValue: "Barniz de Flúor",
       icon: "fa-shield-halved",
       summary:
-        "Apoyo preventivo contra caries. Recomendado para ninos y adultos segun criterio profesional.",
+        "Apoyo preventivo contra caries. Ideal para niños y adultos según criterio profesional.",
+      badge: "¡Prevención que cuida tu sonrisa!",
     },
     {
-      name: "Limpieza profunda con ultrasonido",
+      name: "Limpieza con Ultrasonido",
+      formValue: "Limpieza con Ultrasonido",
       icon: "fa-tooth",
-      summary: "Remueve sarro y placa bacteriana para mantener dientes y encias mas saludables.",
-    },
-    {
-      name: "Atencion odontologica familiar",
-      icon: "fa-people-roof",
-      summary: "Orientacion y cuidado para diferentes edades, con trato cercano y profesional.",
+      summary:
+        "Ayuda a remover sarro y placa bacteriana para mantener dientes y encías más saludables.",
+      badge: "¡Salud que verdaderamente se siente!",
     },
   ],
+  extraServices: ["Valoración Inicial", "Otro tratamiento"],
 };
 
-const placeholderValues = new Set([
-  "",
-  "PEGAR_AQUI_URL_DE_GOOGLE_CALENDAR_APPOINTMENT_SCHEDULE",
-  "PEGAR_AQUI_URL_DE_GOOGLE_APPS_SCRIPT_WEB_APP",
-]);
+const whatsappUrl = (message = dentistConfig.whatsappMessage) =>
+  `https://wa.me/${dentistConfig.whatsapp}?text=${encodeURIComponent(message)}`;
 
-const isConfigured = (value) => !placeholderValues.has(String(value || "").trim());
+const showToast = (title, message) => {
+  const toast = document.querySelector("#toast");
+  const toastTitle = document.querySelector("#toastTitle");
+  const toastMessage = document.querySelector("#toastMessage");
 
-const whatsappUrl = (message = dentistConfig.whatsappMessage) => {
-  return `https://wa.me/${dentistConfig.whatsapp}?text=${encodeURIComponent(message)}`;
+  toastTitle.textContent = title;
+  toastMessage.textContent = message;
+  toast.classList.add("show");
+
+  window.clearTimeout(showToast.timeout);
+  showToast.timeout = window.setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3600);
 };
 
-const setText = (selector, text) => {
-  document.querySelectorAll(selector).forEach((element) => {
-    element.textContent = text;
-  });
-};
-
-const renderConfig = () => {
-  setText('[data-config="name"]', dentistConfig.name);
-  setText('[data-config="campaign"]', dentistConfig.campaign);
-
+const renderGlobalLinks = () => {
   document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
     link.href = whatsappUrl();
   });
+};
 
+const renderServices = () => {
   const servicesRoot = document.querySelector("[data-services]");
   const serviceSelect = document.querySelector("[data-service-select]");
 
-  dentistConfig.services.forEach((service, index) => {
+  dentistConfig.services.forEach((service) => {
     const card = document.createElement("article");
     card.className = "service-card";
     card.innerHTML = `
       <span class="service-icon"><i class="fa-solid ${service.icon}" aria-hidden="true"></i></span>
       <h3>${service.name}</h3>
       <p>${service.summary}</p>
-      <a class="service-link" href="#agenda" data-service-choice="${service.name}" aria-label="Agendar ${service.name}">Me interesa</a>
+      <span class="service-badge">${service.badge}</span>
+      <button type="button" data-service-choice="${service.formValue}">
+        Me interesa <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
     `;
     servicesRoot.appendChild(card);
 
     const option = document.createElement("option");
-    option.value = service.name;
+    option.value = service.formValue;
     option.textContent = service.name;
     serviceSelect.appendChild(option);
   });
 
-  const calendarLink = document.querySelector("[data-calendar-link]");
-  const calendarStatus = document.querySelector("[data-calendar-status]");
-
-  if (isConfigured(dentistConfig.calendarUrl)) {
-    calendarLink.href = dentistConfig.calendarUrl;
-    calendarStatus.textContent = "Agenda activa. Puedes escoger un horario despues de enviar tus datos.";
-  } else {
-    calendarLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      calendarStatus.textContent = "Falta pegar el enlace real de Google Calendar en app.js.";
-    });
-  }
+  dentistConfig.extraServices.forEach((serviceName) => {
+    const option = document.createElement("option");
+    option.value = serviceName;
+    option.textContent = serviceName;
+    serviceSelect.appendChild(option);
+  });
 };
 
-const buildLeadMessage = (payload) => {
-  const parts = [
-    `Hola Dra. Valeria, soy ${payload.name}.`,
-    `Quiero solicitar una cita odontologica.`,
-    payload.service ? `Servicio de interes: ${payload.service}.` : "",
-    payload.phone ? `Mi WhatsApp es: ${payload.phone}.` : "",
-    payload.city ? `Ciudad: ${payload.city}.` : "",
-    payload.preferredTime ? `Horario ideal: ${payload.preferredTime}.` : "",
-    payload.message ? `Comentario: ${payload.message}` : "",
-  ];
+const handleMobileMenu = () => {
+  const button = document.querySelector("#menuButton");
+  const drawer = document.querySelector("#mobileDrawer");
 
-  return parts.filter(Boolean).join("\n");
+  button.addEventListener("click", () => {
+    const isOpen = drawer.classList.toggle("open");
+    button.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  document.querySelectorAll("[data-mobile-link]").forEach((link) => {
+    link.addEventListener("click", () => {
+      drawer.classList.remove("open");
+      button.setAttribute("aria-expanded", "false");
+    });
+  });
 };
 
 const handleServiceChoices = () => {
   const serviceSelect = document.querySelector("[data-service-select]");
-  const form = document.querySelector("#leadForm");
+  const form = document.querySelector("#bookingForm");
 
   document.addEventListener("click", (event) => {
     const choice = event.target.closest("[data-service-choice]");
 
-    if (!choice) {
-      return;
-    }
+    if (!choice) return;
 
     serviceSelect.value = choice.dataset.serviceChoice;
     form.scrollIntoView({ behavior: "smooth", block: "start" });
+    showToast("Servicio seleccionado", `Seleccionaste ${choice.dataset.serviceChoice}. Completa tus datos.`);
   });
+};
+
+const buildWhatsAppMessage = (payload) => {
+  const lines = [
+    "Hola Dra. Valeria Guzmán 🦷, me gustaría agendar una cita.",
+    "",
+    `👤 Nombre: ${payload.name}`,
+    `📱 Celular: ${payload.phone}`,
+    `✨ Servicio: ${payload.service}`,
+    `📅 Fecha tentativa: ${payload.date}`,
+    `⏰ Horario sugerido: ${payload.schedule}`,
+    `📝 Detalles: ${payload.message || "Ninguno"}`,
+  ];
+
+  return lines.join("\n");
 };
 
 const formToPayload = (form) => {
   const data = new FormData(form);
   return {
-    submittedAt: new Date().toISOString(),
-    source: window.location.href,
-    dentistName: dentistConfig.name,
     name: String(data.get("name") || "").trim(),
     phone: String(data.get("phone") || "").trim(),
     service: String(data.get("service") || "").trim(),
-    city: String(data.get("city") || "").trim(),
-    preferredTime: String(data.get("preferredTime") || "").trim(),
+    date: String(data.get("date") || "").trim(),
+    schedule: String(data.get("schedule") || "").trim(),
     message: String(data.get("message") || "").trim(),
-    consent: data.get("consent") ? "yes" : "no",
     website: String(data.get("website") || "").trim(),
   };
 };
 
-const submitLead = async (payload) => {
-  if (!isConfigured(dentistConfig.sheetsWebAppUrl)) {
-    const savedLeads = JSON.parse(localStorage.getItem("demoLeads") || "[]");
-    savedLeads.push(payload);
-    localStorage.setItem("demoLeads", JSON.stringify(savedLeads));
-    return { demo: true };
-  }
+const handleBookingForm = () => {
+  const form = document.querySelector("#bookingForm");
 
-  await fetch(dentistConfig.sheetsWebAppUrl, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8",
-    },
-    body: JSON.stringify(payload),
-  });
-
-  return { demo: false };
-};
-
-const handleForm = () => {
-  const form = document.querySelector("#leadForm");
-  const status = document.querySelector("[data-form-status]");
-  const submitButton = form.querySelector('button[type="submit"]');
-
-  form.addEventListener("submit", async (event) => {
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
     const payload = formToPayload(form);
 
-    if (payload.website) {
-      return;
-    }
+    if (payload.website) return;
 
-    submitButton.disabled = true;
-    status.textContent = "Enviando tus datos...";
+    const message = buildWhatsAppMessage(payload);
+    showToast("Redirigiendo a WhatsApp", "Tu solicitud se abrirá en una nueva pestaña.");
 
-    try {
-      const result = await submitLead(payload);
-      const message = buildLeadMessage(payload);
-      document.querySelectorAll("[data-whatsapp-link]").forEach((link) => {
-        link.href = whatsappUrl(message);
-      });
-
-      status.textContent = result.demo
-        ? "Datos guardados en modo demo. Abriendo WhatsApp para completar la solicitud."
-        : "Datos enviados. Abriendo WhatsApp para completar la solicitud.";
-      form.reset();
+    window.setTimeout(() => {
       window.open(whatsappUrl(message), "_blank", "noreferrer");
-    } catch (error) {
-      status.textContent = "No se pudo enviar. Intenta por WhatsApp o revisa la URL de Apps Script.";
-    } finally {
-      submitButton.disabled = false;
-    }
+      form.reset();
+    }, 700);
   });
 };
 
-renderConfig();
+renderGlobalLinks();
+renderServices();
+handleMobileMenu();
 handleServiceChoices();
-handleForm();
+handleBookingForm();
