@@ -222,6 +222,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   min-height: 54px;
   padding: 14px 22px;
   border: 0;
@@ -276,44 +277,169 @@ h3 {
 }
 
 .visual-card {
-  position: relative;
   padding: 8px;
   background: linear-gradient(135deg, var(--purple), var(--pink-hot));
-  border-radius: 34px;
+  border-radius: 36px;
   box-shadow: var(--shadow);
 }
 
-.visual-card img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 28px;
+.dental-card-inner {
+  position: relative;
+  display: grid;
+  min-height: 520px;
+  overflow: hidden;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(255, 64, 129, 0.18), transparent 9rem),
+    radial-gradient(circle at 12% 90%, rgba(104, 26, 150, 0.16), transparent 10rem),
+    #fff;
+  border-radius: 30px;
 }
 
-.visual-badge {
+.dental-card-inner::before,
+.dental-card-inner::after {
   position: absolute;
-  right: 20px;
-  bottom: 20px;
-  max-width: min(310px, calc(100% - 40px));
+  content: "";
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.dental-card-inner::before {
+  right: -48px;
+  bottom: -58px;
+  width: 190px;
+  height: 190px;
+  background: var(--purple-soft);
+}
+
+.dental-card-inner::after {
+  top: 118px;
+  left: -44px;
+  width: 126px;
+  height: 126px;
+  background: rgba(255, 64, 129, 0.12);
+}
+
+.card-topline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-topline span,
+.card-topline strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.card-topline span {
+  color: var(--pink);
+  background: var(--surface);
+}
+
+.card-topline strong {
+  color: var(--purple);
+  background: var(--purple-soft);
+}
+
+.tooth-scene {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-height: 230px;
+}
+
+.tooth-shape {
+  position: relative;
+  display: grid;
+  width: 148px;
+  height: 148px;
+  place-items: center;
+  background: rgba(216, 27, 96, 0.1);
+  border: 2px solid rgba(216, 27, 96, 0.2);
+  border-radius: 42px;
+  box-shadow: inset 0 0 0 12px rgba(255, 255, 255, 0.64);
+}
+
+.tooth-shape i {
+  color: var(--pink);
+  font-size: 5.3rem;
+  filter: drop-shadow(0 16px 22px rgba(216, 27, 96, 0.2));
+}
+
+.spark {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 62% 36%, 100% 50%, 62% 64%, 50% 100%, 38% 64%, 0 50%, 38% 36%);
+}
+
+.spark-one {
+  top: 38px;
+  right: 86px;
+}
+
+.spark-two {
+  bottom: 48px;
+  left: 88px;
+  width: 13px;
+  height: 13px;
+  background: var(--pink-hot);
+}
+
+.dental-card-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dental-card-copy h2 {
+  margin-bottom: 8px;
+  font-size: 1.55rem;
+}
+
+.dental-card-copy p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.campaign-strip {
+  position: relative;
+  z-index: 1;
+  align-self: end;
   padding: 16px;
   color: #fff;
-  background: rgba(53, 16, 68, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  text-align: center;
+  background: var(--purple);
   border-radius: 20px;
+  box-shadow: 0 16px 32px rgba(53, 16, 68, 0.18);
 }
 
-.visual-badge span,
-.visual-badge strong,
+.campaign-strip span,
+.campaign-strip strong,
 .mini-panel span,
 .mini-panel strong {
   display: block;
 }
 
-.visual-badge span,
+.campaign-strip span,
 .mini-panel span {
   margin-bottom: 5px;
-  color: #ffd7e8;
+  color: var(--gold);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -360,6 +486,10 @@ h3 {
 }
 
 .promo-band a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   flex: 0 0 auto;
   padding: 12px 18px;
   color: var(--purple);
@@ -623,12 +753,14 @@ h3 {
   align-items: center;
   justify-content: center;
   min-height: 56px;
+  min-width: 56px;
   padding: 14px 18px;
   color: #fff;
   background: linear-gradient(135deg, #18b870, #0a8f52);
   border-radius: 999px;
   box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
   font-weight: 900;
+  font-size: 1.45rem;
 }
 
 @media (max-width: 1060px) {
@@ -699,17 +831,13 @@ h3 {
   }
 
   .visual-card {
-    border-radius: 24px;
+    border-radius: 26px;
   }
 
-  .visual-card img {
+  .dental-card-inner {
+    min-height: 460px;
+    padding: 20px;
     border-radius: 20px;
-  }
-
-  .visual-badge {
-    right: 12px;
-    bottom: 12px;
-    max-width: calc(100% - 24px);
   }
 
   .promo-band {

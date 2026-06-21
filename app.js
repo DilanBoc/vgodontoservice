@@ -9,20 +9,24 @@ const dentistConfig = {
   services: [
     {
       name: "Aclaramiento dental",
+      icon: "fa-wand-magic-sparkles",
       summary:
         "Mejora estetica de la sonrisa con valoracion previa, expectativas claras y cuidado profesional.",
     },
     {
       name: "Aplicacion de barniz de fluor",
+      icon: "fa-shield-halved",
       summary:
         "Apoyo preventivo contra caries. Recomendado para ninos y adultos segun criterio profesional.",
     },
     {
       name: "Limpieza profunda con ultrasonido",
+      icon: "fa-tooth",
       summary: "Remueve sarro y placa bacteriana para mantener dientes y encias mas saludables.",
     },
     {
       name: "Atencion odontologica familiar",
+      icon: "fa-people-roof",
       summary: "Orientacion y cuidado para diferentes edades, con trato cercano y profesional.",
     },
   ],
@@ -61,7 +65,7 @@ const renderConfig = () => {
     const card = document.createElement("article");
     card.className = "service-card";
     card.innerHTML = `
-      <span class="service-icon">${index + 1}</span>
+      <span class="service-icon"><i class="fa-solid ${service.icon}" aria-hidden="true"></i></span>
       <h3>${service.name}</h3>
       <p>${service.summary}</p>
       <a class="service-link" href="#agenda" data-service-choice="${service.name}" aria-label="Agendar ${service.name}">Me interesa</a>

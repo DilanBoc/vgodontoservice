@@ -20,12 +20,16 @@
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <span class="brand-mark" aria-hidden="true">VG</span>
+        <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-tooth"></i></span>
         <span>
           <strong data-config="name">Valeria Guzman</strong>
           <small>Odontologia integral</small>
@@ -51,6 +55,7 @@
           </p>
           <div class="hero-actions">
             <a class="button primary" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
               Agendar por WhatsApp
             </a>
             <a class="button secondary" href="#servicios">Ver servicios</a>
@@ -64,11 +69,27 @@
         </div>
 
         <aside class="hero-visual" aria-label="Resumen visual de la agenda">
-          <div class="visual-card">
-            <img src="assets/valeria-reference.png" alt="Referencia de servicios odontologicos" />
-            <div class="visual-badge">
-              <span data-config="campaign">Agenda disponible del 24 de junio al 10 de julio</span>
-              <strong>Servicios para toda la familia</strong>
+          <div class="visual-card dental-card">
+            <div class="dental-card-inner">
+              <div class="card-topline">
+                <span>Dra. Valeria Guzman</span>
+                <strong>Sonrisa saludable</strong>
+              </div>
+              <div class="tooth-scene" aria-hidden="true">
+                <div class="spark spark-one"></div>
+                <div class="spark spark-two"></div>
+                <div class="tooth-shape">
+                  <i class="fa-solid fa-tooth" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="dental-card-copy">
+                <h2>Odontologia con amor</h2>
+                <p>Atencion profesional para cuidar tu sonrisa y la de tu familia.</p>
+              </div>
+              <div class="campaign-strip">
+                <span>Agenda disponible</span>
+                <strong data-config="campaign">Del 24 de junio al 10 de julio</strong>
+              </div>
             </div>
           </div>
           <div class="mini-panel">
@@ -84,7 +105,10 @@
           <span>Precios especiales y accesibles</span>
           <strong>Porque tu salud oral no deberia esperar.</strong>
         </div>
-        <a data-whatsapp-link href="#" target="_blank" rel="noreferrer">Escribir ahora</a>
+        <a data-whatsapp-link href="#" target="_blank" rel="noreferrer">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          Escribir ahora
+        </a>
       </section>
 
       <section class="section" id="servicios">
@@ -183,7 +207,10 @@
             <input type="checkbox" name="consent" required />
             <span>Acepto ser contactado para gestionar mi cita.</span>
           </label>
-          <button class="button primary full" type="submit">Enviar solicitud por WhatsApp</button>
+          <button class="button primary full" type="submit">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            Enviar solicitud por WhatsApp
+          </button>
           <p class="form-status" role="status" data-form-status></p>
         </form>
       </section>
@@ -228,7 +255,7 @@
     </footer>
 
     <a class="floating-whatsapp" data-whatsapp-link href="#" target="_blank" rel="noreferrer" aria-label="Escribir por WhatsApp">
-      WhatsApp
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <script src="app.js"></script>
