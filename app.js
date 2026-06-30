@@ -155,8 +155,27 @@ const handleBooking = () => {
   });
 };
 
+const handleFaqTabs = () => {
+  const buttons = document.querySelectorAll(".faq-tab-btn");
+  const panels = document.querySelectorAll(".faq-tab-panel");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tab = btn.dataset.tab;
+
+      buttons.forEach((b) => { b.classList.remove("active"); b.setAttribute("aria-selected", "false"); });
+      panels.forEach((p) => p.classList.remove("active"));
+
+      btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
+      document.querySelector(`[data-panel="${tab}"]`).classList.add("active");
+    });
+  });
+};
+
 renderWhatsAppLinks();
 renderServices();
 handleMenu();
 handleServiceChoice();
 handleBooking();
+handleFaqTabs();
