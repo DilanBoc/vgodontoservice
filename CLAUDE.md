@@ -57,6 +57,7 @@ Landing page para la **Dra. Valeria Guzmán**, odontóloga colombiana. El objeti
 - **Fechas en hero:** eliminadas. El banner dice "Agenda Disponible / Atención personalizada / Chía y Melgar ✨".
 - **Foto de la Dra.:** existe en `assets/valeria-reference.png` pero no se usa aún. Pendiente para fase 2.
 - **Testimonios:** son placeholder. Pendiente reemplazar con reales.
+- **FAQ:** implementado con tabs por categoría (no lista vertical). Las 12 preguntas están agrupadas en 3 tabs: "Citas & Ubicación" (4), "Tratamientos" (5), "Familia & Prevención" (3). El JS maneja el cambio de tab via `handleFaqTabs()` en `app.js`. No volver a lista vertical.
 
 ## Comportamiento del formulario
 
