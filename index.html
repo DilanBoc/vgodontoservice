@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Cuidado dental profesional, familiar y accesible. Aclaramiento, limpieza con ultrasonido y barniz de flúor. Agenda tu cita por WhatsApp."
+      content="Cuidado dental profesional, familiar y accesible en Chía, Cundinamarca y Melgar, Tolima. Aclaramiento, limpieza con ultrasonido y barniz de flúor. Agenda tu cita por WhatsApp."
     />
-    <title>Dra. Valeria Guzmán — Odontóloga en Melgar, Tolima</title>
+    <title>Dra. Valeria Guzmán — Odontóloga | Chía, Cundinamarca y Melgar, Tolima</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -34,13 +34,14 @@
         <nav class="nav-links" aria-label="Navegación principal">
           <a href="#inicio">Inicio</a>
           <a href="#servicios">Servicios</a>
+          <a href="#ubicaciones">Ubicaciones</a>
           <a href="#agendar">Agendar</a>
           <a href="#contacto">Contacto</a>
         </nav>
 
         <div class="nav-actions">
           <a class="chat-button" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
-            <i class="fa-regular fa-message"></i>
+            <i class="fa-brands fa-whatsapp"></i>
             Chatear Ahora!
           </a>
           <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false">
@@ -52,10 +53,11 @@
       <div class="mobile-menu" id="mobileDrawer">
         <a data-mobile-link href="#inicio">Inicio</a>
         <a data-mobile-link href="#servicios">Servicios</a>
+        <a data-mobile-link href="#ubicaciones">Ubicaciones</a>
         <a data-mobile-link href="#agendar">Agendar</a>
         <a data-mobile-link href="#contacto">Contacto</a>
         <a class="mobile-chat" data-whatsapp-link href="#" target="_blank" rel="noreferrer">
-          <i class="fa-regular fa-message"></i>
+          <i class="fa-brands fa-whatsapp"></i>
           Chatear Ahora!
         </a>
       </div>
@@ -122,8 +124,8 @@
                 <i class="fa-solid fa-star"></i>
                 <div>
                   <strong>Agenda Disponible</strong>
-                  <span>24 de Junio al 10 de Julio</span>
-                  <small>Melgar, Tolima ✨</small>
+                  <span>Atención personalizada</span>
+                  <small>Chía y Melgar ✨</small>
                 </div>
               </div>
             </div>
@@ -145,6 +147,27 @@
           <p>Calidad, precios accesibles y un trato cálido que hace la diferencia.</p>
         </div>
         <div class="services-grid" data-services></div>
+      </section>
+
+      <section class="section locations-section" id="ubicaciones">
+        <div class="section-heading">
+          <span class="script-small">Nuestras ciudades</span>
+          <h2>¿Dónde <span>atendemos</span>? 📍</h2>
+          <p>La Dra. Valeria atiende en dos ciudades para estar más cerca de ti.</p>
+        </div>
+        <div class="locations-grid">
+          <div class="location-card">
+            <div class="location-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <h3>Chía, Cundinamarca</h3>
+            <p>A solo 25 km al norte de Bogotá, en el corazón de la Sabana. Ideal para pacientes de la zona metropolitana y norte de la ciudad.</p>
+          </div>
+          <div class="location-card">
+            <div class="location-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <h3>Melgar, Tolima</h3>
+            <p>Destino favorito de descanso y bienestar. Aprovecha tus visitas o vacaciones en Melgar para cuidar tu salud dental.</p>
+          </div>
+        </div>
+        <p class="locations-note">¿No sabes cuál ciudad te queda mejor? Escríbenos por WhatsApp y coordinamos juntos.</p>
       </section>
 
       <section class="booking-section" id="agendar">
@@ -172,11 +195,11 @@
               <span><i class="fa-solid fa-location-dot"></i></span>
               <div>
                 <small>Ubicación</small>
-                <strong>Melgar, Tolima, Colombia 📍</strong>
+                <strong>Chía, Cund. · Melgar, Tol. 📍</strong>
               </div>
             </div>
             <blockquote>
-              “Tu sonrisa merece lo mejor”
+              "Tu sonrisa merece lo mejor"
               <small>— Dra. Valeria</small>
             </blockquote>
           </aside>
@@ -199,10 +222,18 @@
                 </select>
               </label>
               <label>
+                <span>Ciudad</span>
+                <select name="city" required>
+                  <option value="">Selecciona una ciudad</option>
+                  <option>Chía, Cundinamarca</option>
+                  <option>Melgar, Tolima</option>
+                </select>
+              </label>
+              <label>
                 <span>Fecha tentativa</span>
                 <input name="date" type="date" />
               </label>
-              <label class="wide">
+              <label>
                 <span>Horario preferido</span>
                 <select name="schedule">
                   <option value="">Selecciona horario</option>
@@ -216,11 +247,45 @@
               </label>
             </div>
             <button class="submit-button" type="submit">
-              <i class="fa-regular fa-message"></i>
+              <i class="fa-brands fa-whatsapp"></i>
               Enviar Solicitud a WhatsApp
             </button>
             <p class="safe-note">Tus datos se envían directamente al WhatsApp de la clínica. 100% seguro.</p>
           </form>
+        </div>
+      </section>
+
+      <section class="section testimonials-section" id="testimonios">
+        <div class="section-heading">
+          <span class="script-small">Lo que dicen</span>
+          <h2>Pacientes que <span>confían</span> en nosotros ♡</h2>
+          <p>Experiencias reales de quienes ya cuidan su sonrisa con nosotros.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Me hice la limpieza con ultrasonido y quedé encantada. Mis dientes se sintieron como nuevos y la Dra. Valeria fue súper amable durante todo el procedimiento."</p>
+            <div class="testimonial-author">
+              <strong>María Fernanda R.</strong>
+              <small>Chía, Cundinamarca</small>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"El aclaramiento dental superó mis expectativas. En pocas sesiones noté un cambio increíble. Lo mejor es que la Dra. explica todo paso a paso y transmite mucha confianza."</p>
+            <div class="testimonial-author">
+              <strong>Andrés Ospina</strong>
+              <small>Melgar, Tolima</small>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Llevé a mis hijos para el barniz de flúor y fue una experiencia genial. Los niños estuvieron tranquilos y la atención fue muy cuidadosa. ¡Totalmente recomendada!"</p>
+            <div class="testimonial-author">
+              <strong>Claudia M.</strong>
+              <small>Bogotá</small>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -231,6 +296,27 @@
         </div>
         <div class="faq-list">
           <details open>
+            <summary>
+              ¿Dónde atiende la Dra. Valeria Guzmán?
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p>
+              La Dra. Valeria atiende en dos ciudades: <strong>Chía, Cundinamarca</strong> y <strong>Melgar, Tolima</strong>.
+              Su agenda es flexible entre ambas ciudades. Si tienes preferencia por una ubicación en particular,
+              indícalo al agendar y ella buscará la mejor disponibilidad para ti.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Cómo puedo agendar una cita con la Dra. Valeria?
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p>
+              Puedes agendar de dos formas: llenando el formulario en esta página (que enviará tu solicitud directamente por WhatsApp)
+              o escribiéndole directamente al <strong>+57 312 240 9487</strong>. El proceso es rápido, sin filas y sin esperas.
+            </p>
+          </details>
+          <details>
             <summary>
               ¿Con qué frecuencia debo hacerme una limpieza profunda?
               <i class="fa-solid fa-chevron-down"></i>
@@ -257,7 +343,84 @@
             </summary>
             <p>
               El barniz de flúor actúa como una barrera protectora que remineraliza el esmalte,
-              fortalece los dientes y ayuda a prevenir caries.
+              fortalece los dientes y ayuda a prevenir caries. Es uno de los tratamientos preventivos más recomendados
+              a nivel mundial, tanto para niños como para adultos.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Cuánto dura una sesión de limpieza con ultrasonido?
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p>
+              Una sesión dura aproximadamente entre 30 y 60 minutos según el nivel de acumulación de sarro.
+              Es un procedimiento indoloro y al terminar notarás de inmediato los dientes más limpios y la boca más fresca.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿El aclaramiento dental es apto para todas las personas?
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p>
+              En general sí, aunque hay casos donde se recomienda hacer primero una valoración: dientes con sensibilidad alta,
+              restauraciones visibles (coronas o carillas) o mujeres embarazadas. La Dra. Valeria evalúa cada caso
+              antes de iniciar el tratamiento para garantizar los mejores resultados.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Cuántas sesiones necesito para ver resultados en el aclaramiento?
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p>
+              La mayoría de pacientes notan resultados desde la primera sesión. El número total depende
+              del tono inicial de los dientes y del nivel de aclaramiento deseado. La Dra. Valeria te
+              orientará con un plan personalizado desde la valoración.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Atienden niños y adultos mayores?
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p>
+              Sí, la atención es para toda la familia. Contamos con tratamientos adaptados tanto para niños
+              (como el barniz de flúor preventivo) como para adultos mayores. El trato siempre es cálido,
+              paciente y sin prisa.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Qué debo hacer antes de mi primera cita?
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p>
+              No necesitas preparación especial. Solo llega con los dientes limpios e infórmale a la Dra. Valeria
+              cualquier antecedente médico relevante (alergias o medicamentos actuales). Para la limpieza con
+              ultrasonido se recomienda haber comido antes para estar cómodo durante el procedimiento.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Cómo sé qué servicio dental necesito?
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p>
+              Si no estás seguro, solicita una consulta de valoración. La Dra. Valeria revisará tu estado dental
+              y te recomendará el tratamiento más adecuado para ti. Es el primer paso para comenzar a cuidar
+              tu sonrisa con la orientación correcta.
+            </p>
+          </details>
+          <details>
+            <summary>
+              ¿Es seguro el barniz de flúor para bebés y niños pequeños?
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <p>
+              Sí, es uno de los tratamientos preventivos más recomendados por la odontología pediátrica a nivel mundial.
+              Se aplica en pocos minutos, no duele y protege los dientes de leche frente a las caries.
+              Se recomienda desde que erupcionan los primeros dientes.
             </p>
           </details>
         </div>
@@ -271,7 +434,7 @@
             <span><i class="fa-solid fa-tooth"></i></span>
             <div>
               <strong>Dra. Valeria Guzmán</strong>
-              <small>Odontóloga • Melgar</small>
+              <small>Odontóloga • Chía & Melgar</small>
             </div>
           </div>
           <p>Cuidamos tu sonrisa con amor, profesionalismo y dedicación.</p>
@@ -281,31 +444,31 @@
           <h3>Navegación</h3>
           <a href="#inicio">Inicio</a>
           <a href="#servicios">Servicios</a>
+          <a href="#ubicaciones">Ubicaciones</a>
           <a href="#agendar">Agendar</a>
           <a href="#contacto">Contacto</a>
         </div>
         <div>
           <h3>Contacto</h3>
-          <p>Melgar, Tolima — Colombia</p>
+          <p>Chía, Cundinamarca · Melgar, Tolima</p>
           <p>+57 312 240 9487</p>
-          <p>Lun – Sáb · 8AM – 6PM</p>
           <div class="socials">
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
             <a data-whatsapp-link href="#" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-              <i class="fa-regular fa-message"></i>
+              <i class="fa-brands fa-whatsapp"></i>
             </a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 Dra. Valeria Guzmán. Todos los derechos reservados.</span>
-        <span>Hecho con ♡ en Melgar, Tolima</span>
+        <span>Hecho con ♡ en Chía y Melgar, Colombia</span>
       </div>
     </footer>
 
     <a class="floating-whatsapp" data-whatsapp-link href="#" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-      <i class="fa-regular fa-message"></i>
+      <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <div class="toast" id="toast" role="status" aria-live="polite">
